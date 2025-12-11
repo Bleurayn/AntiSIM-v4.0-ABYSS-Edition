@@ -23,3 +23,13 @@ The first open-source, nation-state resistant truth defense system. Ends AI ghos
 make abyss        # Full truth pipeline
 make prove        # Generate ZKP proof
 make revoke       # Instant revocation
+
+@software{antisim_abyss_2025,
+  author = {Cassandra Harrison},
+  title = {AntiSIM v4.0 ABYSS: Sovereign Truth Enforcement Engine},
+  year = {2025},
+  publisher = {Zenodo},
+  version = {v4.0},
+  doi = {10.5281/zenodo.XXXXXXX},
+  url = {https://doi.org/10.5281/zenodo.XXXXXXX}
+}
