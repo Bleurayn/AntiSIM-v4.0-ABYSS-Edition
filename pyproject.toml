@@ -1,0 +1,14 @@
+[project]
+name = "antisim-abyss"
+version = "4.0.0"
+description = "Nation-state resistant truth enforcement engine"
+authors = [{name = "Cassandra Harrison"}]
+license = {text = "MIT"}
+requires-python = ">=3.12"
+dependencies = [
+    "numpy",
+    "cryptography",
+    "didkit",
+    "nltk",
+    "llama-guard"
+]
