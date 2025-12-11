@@ -1,0 +1,17 @@
+{
+  "weights": {
+    "realism": 0.2,
+    "consistency": 0.15,
+    "velocity": 0.15,
+    "geographic_match": 0.1,
+    "skill_coherence": 0.1,
+    "claim_inflation": 0.1,
+    "pattern_anomaly": 0.1,
+    "language_sentiment": 0.1
+  },
+  "fraud_rates": {
+    "Lagos": 0.85,
+    "Mumbai": 0.75,
+    "default": 0.5
+  }
+}
