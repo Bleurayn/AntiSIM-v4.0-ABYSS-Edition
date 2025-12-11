@@ -1,22 +1,35 @@
-# AntiSIM-v4.0-ABYSS-Edition
+# AntiSIM v4.0 “ABYSS”  
+**Sovereign Truth Enforcement Engine**
 
-# AntiSIM v4.0 “ABYSS” – Sovereign Truth Enforcement Engine
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17889466.svg)](https://doi.org/10.5281/zenodo.17889466)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.12](https://img.shields.io/badge/Python-3.12-blue)](https://python.org)
+[![Revocation: 90s](https://img.shields.io/badge/Revocation-90_seconds-red)](#)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+> **"Any attempt to simulate truth becomes detectable entropy."**  
+> — Cassandra Harrison, 2025
 
-**"Any attempt to simulate truth becomes detectable entropy."**
+The first open-source, **nation-state resistant** truth defense system.  
+Designed to permanently end AI ghost jobs, résumé fraud, credential inflation, and simulation collapse.
 
-The first open-source, nation-state resistant truth defense system. Ends AI ghost jobs, résumé fraud, and simulation collapse forever.
+### Why ABYSS Exists
+In 2025, over 70 % of online résumés and job postings contain synthetic or inflated claims.  
+ABYSS is the cryptographic kill-switch for the simulation era.
 
-### Features
-- AntiSIM Score™ v4 (explainable + document-bound)
-- W3C Verifiable Credentials + BBS+ ZKP
-- 90-second global revocation
-- Llama-Guard 3 jailbreak protection
-- PDF steganographic watermark
-- Multisig + 72h whitelist
-- Real-time verification
+### Core Capabilities
+- **AntiSIM Score™ v4** – Explainable, document-bound, constant-time fraud scoring (0–100)
+- **W3C Verifiable Credentials + BBS+ Zero-Knowledge Proofs** – Prove "score ≥ 95" without revealing data
+- **90-Second Global Revocation** – Instant credential blackholing across wallets
+- **Llama-Guard 3 Jailbreak Annihilator** – Pre-processor blocks all known prompt injections
+- **Invisible PDF Steganographic Watermark** – Survives print/scan/OCR
+- **Multisig + 72-Hour Whitelist Delay** – No single human can override truth
+- **Real-Time Verification** – Every view re-checks VC against live document
+
+### Quick Start
+```bash
+make abyss      # Full truth enforcement pipeline
+make prove      # Generate ZKP ("score ≥ 95")
+make revoke     # Global revocation in <90s
 
 ### Quick Start
 ```bash
@@ -25,11 +38,12 @@ make prove        # Generate ZKP proof
 make revoke       # Instant revocation
 
 @software{antisim_abyss_2025,
-  author = {Cassandra Harrison},
-  title = {AntiSIM v4.0 ABYSS: Sovereign Truth Enforcement Engine},
-  year = {2025},
-  publisher = {Zenodo},
-  version = {v4.0},
-  doi = {10.5281/zenodo.XXXXXXX},
-  url = {https://doi.org/10.5281/zenodo.XXXXXXX}
+  author       = {Harrison, Cassandra},
+  title        = {AntiSIM v4.0 ABYSS: Sovereign Truth Enforcement Engine},
+  month        = dec,
+  year         = {2025},
+  version      = {4.0},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.17889466},
+  url          = {https://doi.org/10.5281/zenodo.17889466}
 }
