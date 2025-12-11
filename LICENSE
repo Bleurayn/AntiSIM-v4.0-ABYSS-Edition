@@ -19,3 +19,18 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+### 2. `CITATION.cff`
+```yaml
+cff-version: 1.2.0
+message: "If you use this software, please cite it using these metadata."
+title: "AntiSIM v4.0 ABYSS: Sovereign Truth Enforcement Engine"
+version: 4.0.0
+date-released: 2025-12-11
+authors:
+  - family-names: "Harrison"
+    given-names: "Cassandra"
+repository-code: "https://github.com/bleurayn/antisim-abyss"
+url: "https://github.com/bleurayn/antisim-abyss"
+license: "MIT"
