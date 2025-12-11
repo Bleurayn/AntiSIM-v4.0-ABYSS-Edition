@@ -1,17 +1,75 @@
 {
+  "antisim_version": "4.0.0-ABYSS",
+  "score_thresholds": {
+    "reject": 70,
+    "review": 85,
+    "approve": 85
+  },
   "weights": {
-    "realism": 0.2,
+    "realism": 0.20,
     "consistency": 0.15,
     "velocity": 0.15,
-    "geographic_match": 0.1,
-    "skill_coherence": 0.1,
-    "claim_inflation": 0.1,
-    "pattern_anomaly": 0.1,
-    "language_sentiment": 0.1
+    "geographic_match": 0.10,
+    "skill_coherence": 0.10,
+    "claim_inflation": 0.10,
+    "pattern_anomaly": 0.10,
+    "language_sentiment": 0.10
   },
   "fraud_rates": {
-    "Lagos": 0.85,
-    "Mumbai": 0.75,
-    "default": 0.5
+    "Lagos": 0.88,
+    "Mumbai": 0.82,
+    "Delhi": 0.79,
+    "Karachi": 0.76,
+    "Dhaka": 0.74,
+    "Manila": 0.71,
+    "Jakarta": 0.68,
+    "Ho Chi Minh City": 0.65,
+    "Moscow": 0.62,
+    "São Paulo": 0.58,
+    "Cairo": 0.55,
+    "default": 0.45
+  },
+  "high_fraud_titles": [
+    "Senior Blockchain Engineer",
+    "VP of Engineering",
+    "Head of AI",
+    "Chief Technology Officer",
+    "Director of Machine Learning",
+    "Lead Solidity Developer",
+    "Full-Stack Web3 Engineer"
+  ],
+  "velocity_alerts": {
+    "max_job_changes_per_year": 1.2,
+    "seniority_jump_threshold": 3
+  },
+  "whitelist": {
+    "enabled": true,
+    "require_multisig": true,
+    "delay_hours": 72,
+    "quorum": "3-of-5"
+  },
+  "revocation": {
+    "interval_seconds": 90,
+    "status_list_url": "https://bleuvault.ecology/status/antisim-2025"
+  },
+  "zkp": {
+    "enabled": true,
+    "cryptosuite": "BbsBlsSignature2023",
+    "selective_disclosure": true
+  },
+  "watermark": {
+    "enabled": true,
+    "method": "dct-frequency",
+    "strength": 0.8,
+    "survives_print_scan": true
+  },
+  "jailbreak_detection": {
+    "model": "Llama-Guard-3-8B",
+    "block_on_detection": true
+  },
+  "ghost_job_index": {
+    "publish_quarterly": true,
+    "noise_epsilon": 0.1,
+    "grid_resolution_km": 100
   }
 }
