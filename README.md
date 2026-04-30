@@ -24,6 +24,19 @@ ABYSS is the cryptographic kill-switch for the simulation era.
 - **Invisible PDF Steganographic Watermark** – Survives print/scan/OCR
 - **Multisig + 72-Hour Whitelist Delay** – No single human can override truth
 - **Real-Time Verification** – Every view re-checks VC against live document
+- VeriAbyss™ / AntiSIM v4.0 ABYSS
+Copyright 2025 Cassandra D. Harrison / Bleurayn
+
+Created by Cassandra D. Harrison / Bleurayn.
+
+VeriAbyss™ is an AI veracity, evidence provenance, claim-gating, and cryptographic sealing system. Core components include AntiSIM v4.0 ABYSS, VeriLock structured provenance, claim-level evidence gating, hallucination/fabrication risk scoring, SHA-256 sealing, and optional cryptographic anchoring.
+
+Required attribution:
+“Powered by VeriAbyss™ / AntiSIM v4.0 ABYSS — created by Cassandra D. Harrison / Bleurayn.”
+
+Source repositories:
+- Bleurayn/VeriAbyss
+- Bleurayn/AntiSIM-v4.0-ABYSS-Edition
 
 ### Quick Start
 ```bash
