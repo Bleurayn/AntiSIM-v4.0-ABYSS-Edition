@@ -1,14 +1,72 @@
 [project]
 name = "antisim-abyss"
 version = "4.0.0"
-description = "Nation-state resistant truth enforcement engine"
-authors = [{name = "Cassandra Harrison"}]
+description = "Pre-output hallucination prevention engine with cryptographic attestation"
+authors = [{name = "Cassandra Harrison", email = "cass@veriabyss.io"}]
 license = {text = "MIT"}
-requires-python = ">=3.12"
+requires-python = ">=3.10"
+readme = "README.md"
+
 dependencies = [
-    "numpy",
-    "cryptography",
-    "didkit",
-    "nltk",
-    "llama-guard"
+    # Core ML - ALL EXIST ON PyPI
+    "torch>=2.0.0",
+    "transformers>=4.35.0",
+    "numpy>=1.24.0",
+    
+    # API and serving
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "pydantic>=2.0.0",
+    
+    # Cryptography - REAL implementations
+    "cryptography>=41.0.0",
+    "pypairing>=0.4.0",  # BLS12-381 for ZKPs
+    "pydid>=0.4.0",      # DID operations
+    
+    # Watermarking
+    "opencv-python>=4.8.0",
+    "PyPDF2>=3.0.0",
+    "reportlab>=4.0.0",
+    "pywavelets>=1.4.0",
+    
+    # Revocation and caching
+    "redis>=5.0.0",
+    "aiohttp>=3.9.0",
+    
+    # Utilities
+    "python-multipart>=0.0.6",
+    "httpx>=0.25.0"
 ]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.6.0",
+    "benchmark>=4.0.0"
+]
+
+[project.scripts]
+antisim-serve = "api.server:main"
+antisim-demo = "examples.demo:main"
+
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 100
+target-version = ['py310', 'py311']
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "N", "W"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
