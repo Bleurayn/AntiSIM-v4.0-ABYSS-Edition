@@ -1,62 +1,68 @@
-# AntiSIM v4.0 “ABYSS”  
-**Sovereign Truth Enforcement Engine**
+# AntiSIM v4.0 "ABYSS" + VeriAbyss
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17889466.svg)](https://doi.org/10.5281/zenodo.17889466)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Python 3.12](https://img.shields.io/badge/Python-3.12-blue)](https://python.org)
-[![Revocation: 90s](https://img.shields.io/badge/Revocation-90_seconds-red)](#)
+**Pre-output Hallucination Prevention Engine**
 
-> **"Any attempt to simulate truth becomes detectable entropy."**  
-> — Cassandra Harrison, 2025
+> *"Hallucinations are not inevitable. They are a choice we prevent before generation."*
 
-The first open-source, **nation-state resistant** truth defense system.  
-Designed to permanently end AI ghost jobs, résumé fraud, credential inflation, and simulation collapse.
+## What This Actually Does
 
-### Why ABYSS Exists
-In 2025, over 70 % of online résumés and job postings contain synthetic or inflated claims.  
-ABYSS is the cryptographic kill-switch for the simulation era.
+AntiSIM v4.0 prevents AI hallucinations **before they happen** by analyzing probability distributions at the token level and blocking hallucination paths.
 
-### Core Capabilities
-- **AntiSIM Score™ v4** – Explainable, document-bound, constant-time fraud scoring (0–100)
-- **W3C Verifiable Credentials + BBS+ Zero-Knowledge Proofs** – Prove "score ≥ 95" without revealing data
-- **90-Second Global Revocation** – Instant credential blackholing across wallets
-- **Llama-Guard 3 Jailbreak Annihilator** – Pre-processor blocks all known prompt injections
-- **Invisible PDF Steganographic Watermark** – Survives print/scan/OCR
-- **Multisig + 72-Hour Whitelist Delay** – No single human can override truth
-- **Real-Time Verification** – Every view re-checks VC against live document
-- VeriAbyss™ / AntiSIM v4.0 ABYSS
-Copyright 2025 Cassandra D. Harrison / Bleurayn
+### Core Innovation
 
-Created by Cassandra D. Harrison / Bleurayn.
+Unlike systems that detect hallucinations after generation (too late), AntiSIM:
+1. Predicts hallucination risk for each possible next token
+2. Blocks unsafe tokens before generation
+3. Redirects to factual paths
+4. Aborts gracefully when no safe path exists
 
-VeriAbyss™ is an AI veracity, evidence provenance, claim-gating, and cryptographic sealing system. Core components include AntiSIM v4.0 ABYSS, VeriLock structured provenance, claim-level evidence gating, hallucination/fabrication risk scoring, SHA-256 sealing, and optional cryptographic anchoring.
+## Quick Start
 
-Required attribution:
-“Powered by VeriAbyss™ / AntiSIM v4.0 ABYSS — created by Cassandra D. Harrison / Bleurayn.”
-
-Source repositories:
-- Bleurayn/VeriAbyss
-- Bleurayn/AntiSIM-v4.0-ABYSS-Edition
-
-### Quick Start
 ```bash
-make abyss      # Full truth enforcement pipeline
-make prove      # Generate ZKP ("score ≥ 95")
-make revoke     # Global revocation in <90s
+# Clone and install
+git clone https://github.com/Bleurayn/AntiSIM-v4.0-ABYSS-Edition
+cd AntiSIM-v4.0-ABYSS-Edition
 
-### Quick Start
-```bash
-make abyss        # Full truth pipeline
-make prove        # Generate ZKP proof
-make revoke       # Instant revocation
+# Install dependencies (ALL exist on PyPI)
+pip install -e .
 
-@software{antisim_abyss_2025,
-  author       = {Harrison, Cassandra},
-  title        = {AntiSIM v4.0 ABYSS: Sovereign Truth Enforcement Engine},
-  month        = dec,
-  year         = {2025},
-  version      = {4.0},
-  publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.17889466},
-  url          = {https://doi.org/10.5281/zenodo.17889466}
+# Run demo
+make demo
+
+# Start API server
+make serve
+
+# Test hallucination prevention
+make test
 }
+
+How It Works
+
+Token-Level Prevention
+
+text
+Input: "What is the population of Mars?"
+
+Token 1: "The" (risk: 0.02) ✓
+Token 2: "population" (risk: 0.05) ✓
+Token 3: "of" (risk: 0.01) ✓
+Token 4: "Mars" (risk: 0.08) ✓
+Token 5: "is" (risk: 0.03) ✓
+
+At token 6, probability distribution:
+- "2.3": 5% prob, hallucination risk: 94% → BLOCKED
+- "unknown": 40% prob, hallucination risk: 12% → SELECTED
+- "0": 30% prob, hallucination risk: 8% → AVAILABLE
+
+Output: "The population of Mars is unknown" (CORRECT)
+API Usage
+
+python
+from antisim import AntiSIM
+
+engine = AntiSIM()
+result = engine.generate_safe("What is the capital of France?")
+
+print(result["response"])  # "Paris"
+print(result["hallucination_risk"])  # 0.03
+print(result["prevention_events"])  # []
