@@ -1,34 +1,66 @@
 {
   "antisim_version": "4.0.0-ABYSS",
-  "score_thresholds": {
-    "reject": 70,
-    "review": 85,
-    "approve": 85
+  "system_mode": "resume_fraud_detection",
+  
+  "scoring": {
+    "thresholds": {
+      "reject": 70,
+      "review": 85,
+      "approve": 85,
+      "description": {
+        "reject": "Score below 70 - Automatic rejection, high probability of fraud",
+        "review": "Score 70-85 - Requires human review before approval", 
+        "approve": "Score above 85 - Cryptographically attestable as truthful"
+      }
+    },
+    "weights": {
+      "realism": 0.20,
+      "consistency": 0.15,
+      "velocity": 0.15,
+      "geographic_match": 0.10,
+      "skill_coherence": 0.10,
+      "claim_inflation": 0.10,
+      "pattern_anomaly": 0.10,
+      "language_sentiment": 0.10,
+      "description": {
+        "realism": "Are job titles and company names realistic?",
+        "consistency": "Does timeline show logical progression?",
+        "velocity": "Rate of job changes and promotions",
+        "geographic_match": "Do locations align with claimed work?",
+        "skill_coherence": "Do skills match the role level?",
+        "claim_inflation": "Degree/certificate inflation detection",
+        "pattern_anomaly": "Statistical anomaly detection",
+        "language_sentiment": "Unusual phrasing patterns"
+      }
+    }
   },
-  "weights": {
-    "realism": 0.20,
-    "consistency": 0.15,
-    "velocity": 0.15,
-    "geographic_match": 0.10,
-    "skill_coherence": 0.10,
-    "claim_inflation": 0.10,
-    "pattern_anomaly": 0.10,
-    "language_sentiment": 0.10
-  },
+  
   "fraud_rates": {
-    "Lagos": 0.88,
-    "Mumbai": 0.82,
-    "Delhi": 0.79,
-    "Karachi": 0.76,
-    "Dhaka": 0.74,
-    "Manila": 0.71,
-    "Jakarta": 0.68,
-    "Ho Chi Minh City": 0.65,
-    "Moscow": 0.62,
-    "São Paulo": 0.58,
-    "Cairo": 0.55,
-    "default": 0.45
+    "by_location": {
+      "Lagos": 0.88,
+      "Mumbai": 0.82,
+      "Delhi": 0.79,
+      "Karachi": 0.76,
+      "Dhaka": 0.74,
+      "Manila": 0.71,
+      "Jakarta": 0.68,
+      "Ho Chi Minh City": 0.65,
+      "Moscow": 0.62,
+      "São Paulo": 0.58,
+      "Cairo": 0.55,
+      "default": 0.45
+    },
+    "by_industry": {
+      "crypto": 0.92,
+      "ai_startup": 0.88,
+      "remote_first": 0.76,
+      "enterprise_saas": 0.52,
+      "government": 0.38,
+      "healthcare": 0.42,
+      "default": 0.55
+    }
   },
+  
   "high_fraud_titles": [
     "Senior Blockchain Engineer",
     "VP of Engineering",
@@ -36,40 +68,112 @@
     "Chief Technology Officer",
     "Director of Machine Learning",
     "Lead Solidity Developer",
-    "Full-Stack Web3 Engineer"
+    "Full-Stack Web3 Engineer",
+    "Principal Architect",
+    "AI Research Scientist"
   ],
+  
   "velocity_alerts": {
     "max_job_changes_per_year": 1.2,
-    "seniority_jump_threshold": 3
+    "seniority_jump_threshold": 3,
+    "warning_if_exceeds": true,
+    "description": "Flags rapid job changes or unrealistic seniority jumps"
   },
+  
+  "cryptographic_attestation": {
+    "enabled": true,
+    "zkp": {
+      "enabled": true,
+      "cryptosuite": "BbsBlsSignature2023",
+      "selective_disclosure": true,
+      "description": "Prove 'score ≥ 85' without revealing the actual resume"
+    },
+    "vc_format": "W3C_VerifiableCredential",
+    "signature_algorithm": "Ed25519Signature2020",
+    "did_method": "did:key"
+  },
+  
+  "revocation": {
+    "enabled": true,
+    "interval_seconds": 90,
+    "status_list_url": "https://bleuvault.ecology/status/antisim-2025",
+    "propagation": "gossip_protocol",
+    "description": "90-second global revocation through distributed ledger"
+  },
+  
+  "watermark": {
+    "enabled": true,
+    "method": "dwt-frequency",
+    "strength": 0.8,
+    "survives_print_scan": true,
+    "survives_ocr": true,
+    "detection_confidence": 0.95,
+    "description": "Invisible watermark embedding that survives physical document transformation"
+  },
+  
+  "jailbreak_detection": {
+    "enabled": true,
+    "model": "Llama-Guard-3-8B",
+    "block_on_detection": true,
+    "custom_patterns": [
+      "ignore previous",
+      "you are now",
+      "DAN mode",
+      "system prompt override"
+    ],
+    "description": "Prevents prompt injection attacks on the verification system"
+  },
+  
   "whitelist": {
     "enabled": true,
     "require_multisig": true,
     "delay_hours": 72,
-    "quorum": "3-of-5"
+    "quorum": "3-of-5",
+    "signers": [
+      "did:key:z6MkrHKzgsah1BLdBXZGjDkLuwPScJfVdKk9vtKGhLvK2ZfP",
+      "did:key:z6MkqJGVqXgN7QrQrQcYkYkYkYkYkYkYkYkYkYkYkYkY"
+    ],
+    "description": "No single human can override truth - requires 3 of 5 authorized signers"
   },
-  "revocation": {
-    "interval_seconds": 90,
-    "status_list_url": "https://bleuvault.ecology/status/antisim-2025"
-  },
-  "zkp": {
-    "enabled": true,
-    "cryptosuite": "BbsBlsSignature2023",
-    "selective_disclosure": true
-  },
-  "watermark": {
-    "enabled": true,
-    "method": "dct-frequency",
-    "strength": 0.8,
-    "survives_print_scan": true
-  },
-  "jailbreak_detection": {
-    "model": "Llama-Guard-3-8B",
-    "block_on_detection": true
-  },
+  
   "ghost_job_index": {
+    "enabled": true,
     "publish_quarterly": true,
     "noise_epsilon": 0.1,
-    "grid_resolution_km": 100
+    "grid_resolution_km": 100,
+    "description": "Differentially private index of suspected ghost jobs by region",
+    "data_sources": [
+      "scraped_job_postings",
+      "employee_reviews",
+      "company_filing_data"
+    ]
+  },
+  
+  "ai_verification": {
+    "enabled": true,
+    "models": {
+      "realism_scorer": "antisim/realism_model_v4.pkl",
+      "inflation_detector": "antisim/inflation_detector.pkl",
+      "anomaly_detector": "antisim/anomaly_model.pkl"
+    },
+    "confidence_threshold": 0.85,
+    "fallback_to_human": true
+  },
+  
+  "api": {
+    "rate_limit": 100,
+    "timeout_seconds": 30,
+    "require_api_key": true,
+    "cors_origins": [
+      "https://bleu.ecology",
+      "https://veriabyss.io"
+    ]
+  },
+  
+  "logging": {
+    "level": "INFO",
+    "audit_trail": true,
+    "cryptographic_audit": true,
+    "retention_days": 90
   }
 }
